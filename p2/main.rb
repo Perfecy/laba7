@@ -19,9 +19,17 @@ end
 class MyNewSymbol < MySymbol
   attr_reader :font
   def initialize(sym, font)
-    @sym = sym.to_s
+    super(sym)
     @font = font.to_s
   end
+  def put_mean
+    super
+  end
+
+  def put_code
+    super
+  end
+
 
   def put_font
     print 'Symbol Font: '
