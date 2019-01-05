@@ -63,7 +63,7 @@ class TestParent < MiniTest::Unit::TestCase
     my_symbol = MySymbol.new 'a'
     assert_instance_of MySymbol, my_symbol
   end
-  def test_my_new_symbol_instance_from_setup
+  def test_my_symbol_instance_from_setup
     assert_kind_of MySymbol, @mysym
   end
 
