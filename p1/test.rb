@@ -20,7 +20,7 @@ class Test < MiniTest::Unit::TestCase
   end
 
 
-  def test_1
+  def test_logic
     files(FILE_PATH)
     assert_equal(File.read('H.txt'), @str)
   end
