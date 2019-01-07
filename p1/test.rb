@@ -11,16 +11,17 @@ class Test < MiniTest::Unit::TestCase
     k=0
     @str = ''
     @data.each_char do |i|
-      if (i != 'a') && (k==0)
+      if (i != 'a') && (k.zero?)
         @str << i
       else
         k+=1
       end
     end
-    files(FILE_PATH)
-      end
+  end
+
 
   def test_1
+    files(FILE_PATH)
     assert_equal(File.read('H.txt'), @str)
   end
 
@@ -37,6 +38,7 @@ class Test < MiniTest::Unit::TestCase
   def create_src_file
     File.open(FILE_PATH, 'w') { |f| f.write @data }
   end
+
   def remove_files
     File.delete FILE_PATH
     File.delete ('H.txt')
