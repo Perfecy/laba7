@@ -8,17 +8,7 @@ class Test < MiniTest::Unit::TestCase
   def setup
     prepare_data_to_write!
     create_src_file
-    k=0
-    @str = ''
-    @data.each_char do |i|
-      if (i != 'a') && (k.zero?)
-        @str << i
-      else
-        k+=1
-      end
-    end
   end
-
 
   def test_logic
     files(FILE_PATH)
@@ -33,7 +23,8 @@ class Test < MiniTest::Unit::TestCase
 
   def prepare_data_to_write!
     @data = Faker::GameOfThrones.quote
-   end
+    @str = @data.split('a').first
+  end
 
   def create_src_file
     File.open(FILE_PATH, 'w') { |f| f.write @data }
@@ -41,7 +32,7 @@ class Test < MiniTest::Unit::TestCase
 
   def remove_files
     File.delete FILE_PATH
-    File.delete ('H.txt')
+    File.delete 'H.txt'
   end
 
   FILE_PATH = 'test.txt'.freeze
